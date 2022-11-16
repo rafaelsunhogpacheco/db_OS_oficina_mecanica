@@ -2,7 +2,7 @@
 # Ordem de Serviço
 # Oficina Mecânica
 
-## Modelo ER Entidade Relacionamento extendido
+## Modelo ER Entidade Relacionamento extendido (pdf e png)
 ## DataBase
 ## Script de criação, população de dados e queries de consulta
 
