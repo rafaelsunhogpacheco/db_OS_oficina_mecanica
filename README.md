@@ -45,6 +45,8 @@ create table people(
 
 
 * criar a tabela Cliente
+
+
 create table clients(
 	idClient int auto_increment,
 	idClientPL int,	
@@ -53,6 +55,8 @@ create table clients(
 );
 
 * criar tabela Mecanico
+
+
  create table employee(
 	idEmployee int auto_increment,
     idEmployeePL int,
@@ -62,6 +66,8 @@ create table clients(
 );
 
 * criar tabela equipe responsavel
+
+
 create table team(
 	idTeam int auto_increment,
     idTeamEmployee int,
@@ -71,6 +77,8 @@ create table team(
 );
 
 * criar tabela oficina mecanica
+
+
 create table repairShop(
 	idRepairShop int auto_increment,
     SocialName varchar(45) not null,
@@ -88,6 +96,8 @@ create table repairShop(
 );
 
 * criar tabela veículo
+
+
 create table vehicle(
 	idvehicle int auto_increment,
     idClVehicle int,
@@ -101,6 +111,8 @@ create table vehicle(
 
 
 * criar tabela OS Ordem de Serviço
+
+
 create table serviceOrder (
 	idServiceOrder int auto_increment,
     kindServiceOrder ENUM('Manutencao', 'Revisão'),
@@ -121,6 +133,8 @@ create table serviceOrder (
 );
 
 * criar tabela Peças
+
+
 create table parts (
 	idPart int auto_increment,
     part_description varchar(45) not null,
@@ -129,6 +143,8 @@ create table parts (
 );
 
 * criar tabela valor das peças
+
+
 create table rateParts (
 	idrateParts int,
     idPartsOS int,
@@ -141,6 +157,8 @@ create table rateParts (
 
 
 * criar tabela Serviço (mão de obra)
+
+
 create table services(
 	idService int auto_increment,
     service_description varchar(45) not null,
@@ -149,6 +167,8 @@ create table services(
 );
 
 * criar tabela valor serviço (mão de obra)
+
+
 create table rateServices (
 	idrateServices int,
     idServiceOS int,
@@ -164,6 +184,8 @@ create table rateServices (
 ### Populando a base de dados
 
 * Populando pessoas
+
+
 insert into people (Fname, Minit,Lname,CPF,Bdate, phone, street,houseNumber, complement, district,city,state,zip_code)
 			values ('Carlos', 'Dos', 'Santos',12345678911,'1985-01-09',49999985281,'Rua das Palmeiras',124,'casa', 'Centro','São Paulo','SP','89990000'),
 					('Fernanda', 'Maria', 'Pereira',45645678911,'1993-03-10', 11999985299,'Tamandare',65, 'casa', 'Novo Bairro','São Paulo','SP','89990000'),
@@ -182,6 +204,8 @@ insert into people (Fname, Minit,Lname,CPF,Bdate, phone, street,houseNumber, com
                     ('Nelmiro', 'S', 'Fagundes',78458678911,'2002-08-10', 11669987881,'Av Amazonas',1246, 'Centro','apto 402','São Paulo','SP','89990000');
 
 * Populando clientes
+
+
 insert into clients (idClientPL)
 			values (46),
 					(47),
@@ -192,6 +216,8 @@ insert into clients (idClientPL)
                     (52);
 
 * Populando funcionários
+
+
 insert into employee (idEmployeePL,specialty)
 			values (51,'Atendimento'),
 					(52,'Atendimento'),
@@ -205,6 +231,8 @@ insert into employee (idEmployeePL,specialty)
                     (60,'Mecanico');
                     
 * Populando equipes
+
+
 insert into team (idTeamEmployee,teamPosition)
 			values (1,'Atendimento'),
 					(2,'Atendimento'),
@@ -218,6 +246,8 @@ insert into team (idTeamEmployee,teamPosition)
                     (10,'TimeA');
 
 * Populando Oficina Mecanica
+
+
 insert into repairshop (SocialName,CNPJ, phone,street,houseNumber,complement,district,city,state,zip_code)
 			values ('Oficina Mecanica','131355660001500','11965875687','Av Paulista',1134,'Ala 1','Bairro Indistrial', 'São Paulo', 'SP',89990000);
 			
@@ -225,6 +255,8 @@ insert into repairshop (SocialName,CNPJ, phone,street,houseNumber,complement,dis
 
 
 * Populando Veiculos
+
+
 insert into vehicle (idClVehicle,license_plate, brand,model)
 			values (1,'AUR1144','Ford','2008'),
 					(2,'AHU5568','Fiat','2020'),
@@ -240,6 +272,8 @@ insert into vehicle (idClVehicle,license_plate, brand,model)
 
 
 * poulando OS Ordem de serviço
+
+
 insert into serviceOrder (kindServiceOrder,idVehicleOS, idrepairShopOS,idTeamOS,idclientOS,dateIn,dateOut,statusOS,descriptionOrder,clientAuthorization)
 			values ('Manutenção',11,1,3,1,'2022-10-09',null,'Em Serviço','Manutenção no sistema de freio','True'),
 					('Revisão',12,1,4,2,'2022-10-09',null,'Aguardando autorização cliente','Manutenção no sistema hidráulico','False'),
@@ -255,6 +289,8 @@ insert into serviceOrder (kindServiceOrder,idVehicleOS, idrepairShopOS,idTeamOS,
 
 
 * populando tabela peças
+
+
 insert into parts (part_description,partRate)
 			values ('Kit Limpador de Parabrisa',1129.99),
 					('Kit Pastilhas de freio',549.50),
@@ -265,6 +301,8 @@ insert into parts (part_description,partRate)
                     
                     
 * populando tabela Serviço (mão de obra)
+
+
 insert into services (service_description,serviceRate)
 			values ('Hora mecânico básica',80.5),
 					('Hora auxiliar básica',40.5),
@@ -276,6 +314,8 @@ insert into services (service_description,serviceRate)
                     
 
 * populando tabela relação peças
+
+
 insert into rateParts (idrateParts,idPartsOS,quantity,totalPartsAmount)
 			values (1,1,1.0,1125.5),
 					(2,2,1.0,1435.2),
@@ -289,6 +329,8 @@ insert into rateParts (idrateParts,idPartsOS,quantity,totalPartsAmount)
 
 
 * populando tabela relação serviços
+
+
 insert into rateServices (idrateServices,idServiceOS,quantity,totalService)
 			values (1,1,1.0,257.5),
 					(2,2,2.0,1435.2),
@@ -303,71 +345,88 @@ insert into rateServices (idrateServices,idServiceOS,quantity,totalService)
 
 ### Consultas e queries
 
-* consultas basicas
+#### Consultas básicas
 
 * pessoa dados das pessoas com concat
-select * from people;
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Pessoa, CPF, phone, Bdate from people;
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Pessoa, concat(street,' ',housenumber,' ',complement,' ',district,' ',city,' ',state,' ',zip_code) as Endereço from people;
 
 
 * Recuperando a relação de clientes (Nome, CPF e Telefone)
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Cliente, CPF, phone from people, clients
 	where idPeople = idClientPL;
 
 
 * Recuperando a relação dos veiculos e seus respectivos proprietários
-select * from vehicle;
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Cliente, phone, license_plate, brand, model from people, clients, vehicle
 	where idPeople = idClientPL and idClient = idClVehicle;
 
 * Recuperando o(s) veículo(s) de um proprietário específico
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Cliente, phone, license_plate, brand, model from people, clients, vehicle
 	where idPeople = idClientPL and idClient = idClVehicle and Fname = 'Carlos';
     
 * Recuperando o(s) proprietário a partir da marca do veículo
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Cliente, phone, license_plate, brand, model from people, clients, vehicle
 	where idPeople = idClientPL and idClient = idClVehicle and brand = 'Ford';
     
     
 * Recuperando o(s) proprietário a partir da placa do veículo
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Cliente, phone, license_plate, brand, model from people, clients, vehicle
 	where idPeople = idClientPL and idClient = idClVehicle and license_plate = 'LOA3254';
     
 * Recuperando a relação dos Mecânicos e sua especialidade
-select * from people;
-select * from employee;
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Colaborador, specialty as Especialidade from people, employee
 	where idPeople = idEmployeePL;
 
 * Recuperando a relação dos Mecânicos de uma única especialidade ('Atendimento', 'Auxiliar', 'Mecanico', 'Eletricista')
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Colaborador, specialty as Especialidade from people, employee
 	where idPeople = idEmployeePL and specialty = 'Mecanico';
 
 
 * Recuperando os Funcionários, as equipes e sua especialidade
-select * from team;
-select * from employee;
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Colaborador, specialty as Especialidade, teamPosition as Posição from people, employee, team
 	where idPeople = idEmployeePL and idEmployee = idTeamEmployee;
 
 * Recuperando os Funcionários por equipe e sua especialidade
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as Colaborador, specialty as Especialidade, teamPosition as Posição from people, employee, team
 	where idPeople = idEmployeePL and idEmployee = idTeamEmployee and teamPosition = 'TimeA';
 
 * recuperando um mecanico que tambem é cliente   
+
+
 select concat(Fname, ' ', Minit, ' ',Lname) as 'Colaborador/Cliente' from people, clients, employee
 	where idPeople = idClientPL and idPeople = idEmployeePL;
 
 
 
-* Recuperando os dados de uma OS
-* Cliente e dados da OS
-select * from clients;
-select * from serviceorder;
+#### Recuperando os dados de uma OS
 
 
 * Recuperando dados da OS com equipe responsável e veículo
+
+
 select idServiceOrder as 'Número OS', teamPOsition as Equipe, license_plate, kindServiceOrder as 'Tipo Serviço', 
 	dateIn as 'Data entrada', dateOut as 'Data comclusão', StatusOS, descriptionOrder  as Descrição, clientAuthorization as 'Autorização cliente'
     from team, serviceorder, vehicle
@@ -376,6 +435,8 @@ select idServiceOrder as 'Número OS', teamPOsition as Equipe, license_plate, ki
 
 
 * Recuperando valores da Tabela Valores das peças
+
+
 select idServiceOrder as 'Número OS', totalPartsAmount as 'Valores das Peças', teamPOsition as Equipe, license_plate, kindServiceOrder as 'Tipo Serviço', 
 	dateIn as 'Data entrada', dateOut as 'Data comclusão', StatusOS, descriptionOrder  as Descrição, clientAuthorization as 'Autorização cliente'
     from team, serviceorder, vehicle, rateparts
@@ -384,6 +445,8 @@ select idServiceOrder as 'Número OS', totalPartsAmount as 'Valores das Peças',
 
 
 * Recuperando valores da Tabela Valores das peças com filtro de busca nos valores
+
+
 select idServiceOrder as 'Número OS', totalPartsAmount as 'Valores das Peças', teamPOsition as Equipe, license_plate, kindServiceOrder as 'Tipo Serviço', 
 	dateIn as 'Data entrada', dateOut as 'Data comclusão', StatusOS, descriptionOrder  as Descrição, clientAuthorization as 'Autorização cliente'
     from team, serviceorder, vehicle, rateparts
@@ -391,6 +454,8 @@ select idServiceOrder as 'Número OS', totalPartsAmount as 'Valores das Peças',
 
 
 * Recuperando valores da Tabela Valores dos Serviços
+
+
 select idServiceOrder as 'Número OS', totalService as 'Valores dos Serviços', teamPOsition as Equipe, license_plate, kindServiceOrder as 'Tipo Serviço', 
 	dateIn as 'Data entrada', dateOut as 'Data comclusão', StatusOS, descriptionOrder  as Descrição, clientAuthorization as 'Autorização cliente'
     from team, serviceorder, vehicle, rateservices
@@ -398,6 +463,8 @@ select idServiceOrder as 'Número OS', totalService as 'Valores dos Serviços', 
 
 
 * Recuperando valores da Tabela Valores dos Serviços com filtro de busca nos valores
+
+
 select idServiceOrder as 'Número OS', totalService as 'Valores dos Serviços', teamPOsition as Equipe, license_plate, kindServiceOrder as 'Tipo Serviço', 
 	dateIn as 'Data entrada', dateOut as 'Data comclusão', StatusOS, descriptionOrder  as Descrição, clientAuthorization as 'Autorização cliente'
     from team, serviceorder, vehicle, rateservices
@@ -405,9 +472,10 @@ select idServiceOrder as 'Número OS', totalService as 'Valores dos Serviços', 
 
 
 
-* Recuperando valores de 3 tabelas com inner join e operações matemáticas
-* partRate from parts
-* quantity, totalPartsAmount from rateparts
+#### Recuperando valores de 3 tabelas com inner join e operações matemáticas
+* partRate from parts e quantity, totalPartsAmount from rateparts
+
+
 select distinct idServiceOrder, kindserviceOrder, dateIn, statusOs, part_description, quantity, totalPartsAmount, partRate, round((totalPartsAmount + partRate),2) as Valor_total
 	from rateparts
 	inner join serviceorder on idPartsOS = idServiceOrder
@@ -417,6 +485,8 @@ select distinct idServiceOrder, kindserviceOrder, dateIn, statusOs, part_descrip
 
 
 * filtro com like
+
+
 select distinct idServiceOrder, kindserviceOrder, dateIn, dateOut, statusOs, part_description, quantity, totalPartsAmount, partRate, round((totalPartsAmount + partRate),2) as Valor_total
 	from rateparts
 	inner join serviceorder on idPartsOS = idServiceOrder
@@ -427,6 +497,8 @@ select distinct idServiceOrder, kindserviceOrder, dateIn, dateOut, statusOs, par
 
 
 * Contagem de itens, soma, maximo, minimo e media de valores
+
+
 select idServiceOrder, kindserviceOrder, dateIn, statusOs, part_description, quantity, partRate,
 	count(*) as contagem, round(sum(partRate),2) as Soma_valores, max(partRate) as valor_maximo, min(partRate) as valor_minimo,
     round(avg(partRate),2) as Valor_medio
@@ -441,10 +513,11 @@ select idServiceOrder, kindserviceOrder, dateIn, statusOs, part_description, qua
 
 * Recuperando valores de 4 tabelas com inner join e operações matemáticas
 * serviceorder OS
-* cliets
+* clinets
 * vehicles
-*  totalPartsAmount from rateparts
+* totalPartsAmount from rateparts
 * totalService from rateservice
+
 
 select idServiceOrder, idVehicleOS, idclientOS, kindserviceOrder, dateIn, statusOs, totalPartsAmount, totalService
 	from serviceorder
@@ -455,6 +528,8 @@ select idServiceOrder, idVehicleOS, idclientOS, kindserviceOrder, dateIn, status
 
 
 * Identificação da OS, ID Veículo, ID Cliente, Valor das peças e serviços com filtro no cliente
+
+
 select idServiceOrder, idVehicleOS, idclientOS, kindserviceOrder, dateIn, statusOs, totalPartsAmount, totalService
 	from serviceorder
 	inner join rateParts on idPartsOS = idServiceOrder
@@ -464,6 +539,8 @@ select idServiceOrder, idVehicleOS, idclientOS, kindserviceOrder, dateIn, status
     
     
 * Identificação da OS, ID Veículo, ID Cliente, Valor das peças e serviços com filtro no veiculo
+
+
 select idServiceOrder, idVehicleOS, idclientOS, kindserviceOrder, dateIn, statusOs, totalPartsAmount, totalService
 	from serviceorder
 	inner join rateParts on idPartsOS = idServiceOrder
