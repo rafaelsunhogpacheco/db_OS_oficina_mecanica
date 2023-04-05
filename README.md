@@ -1,7 +1,7 @@
 # Data Base MySQL Ordem de Serviço (OS) Oficina Mecânica
-### Projeto banco de dados My SQL Workbench
+## Projeto banco de dados My SQL Workbench
 
-## Modelo ER Entidade Relacionamento extendido
+### Modelo ER Entidade Relacionamento extendido
 OS_oficina_mecanica.mwb
 Tambem disponível em pdf e png como imagens
 
@@ -10,12 +10,14 @@ Tambem disponível em pdf e png como imagens
 
 
 ## DataBase
-OS_oficina_mecanica.mwb.bak
+Arquivo base de dados
+(OS_oficina_mecanica.mwb.bak)
 
 
 ## Script de criação, população de dados e queries de consulta
-OS_oficina_mecanica_script_final.sql
 Script para criação das tabelas, Inserção de dados para popular as tabelas, Queries de consulta
+(OS_oficina_mecanica_script_final.sql)
+
 
 
 ### criar tabelas
