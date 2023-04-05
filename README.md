@@ -1,53 +1,114 @@
-# Data Base MySQL Ordem de Serviço (OS) Oficina Mecânica
-## Projeto banco de dados My SQL Workbench
+# DataBase MySQL Ordem de Serviço (OS) Oficina Mecânica
+Projeto banco de dados em MySQL Workbench para Oficina Mecânica com emissão de OS (Ordem de Serviço)
 
-### Modelo ER Entidade Relacionamento extendido
-* OS_oficina_mecanica.mwb
-* Tambem disponível em pdf e png como imagens
+## Status do Projeto
+Finalizado
 
 ![Modelo ER Entidade Relacionamento Oficina Mecânica Ordem de Serviço](/src/modeloER_OS_OficinaMecanica.png "Oficina Mecânica Ordem de Serviço")
 
+## Conteúdo
+1.  Modelo ER Entidade Relacionamento extendido
+* OS_oficina_mecanica.mwb
+* Tambem disponível em pdf e png como imagens
 
-
-## DataBase
+2.  DataBase
 Arquivo base de dados
 * OS_oficina_mecanica.mwb.bak
 
-
-## Script de criação, população de dados e queries de consulta
+3.  Script de criação, população de dados e queries de consulta
 Script para criação das tabelas, Inserção de dados para popular as tabelas, Queries de consulta
 * OS_oficina_mecanica_script_final.sql
 
 
+### Pré-requisitos 
+Possuir o MySQL instalado na máquina.
+
+### Features
+1. Criar as tabelas
+* Pessoa
+* Cliente
+* Mecanico
+* Equipe responsavel
+* Oficina mecanica
+* Veículo
+* OS Ordem de Serviço
+* Peças
+* Valor das peças
+* Serviço (mão de obra)
+* Valor serviço (mão de obra)
+
+2. Popular tabelas
+Inserindo dados nas tabelas
+
+3. Realizar queries de consulta
+
+#### Recuperando Pessoa e dados das pessoas com concat
+* Recuperando a relação de clientes (Nome, CPF e Telefone)
+* Recuperando a relação dos veiculos e seus respectivos proprietários
+* Recuperando o(s) veículo(s) de um proprietário específico
+* Recuperando o(s) proprietário a partir da marca do veículo
+* Recuperando o(s) proprietário a partir da placa do veículo
+* Recuperando a relação dos Mecânicos e sua especialidade
+* Recuperando a relação dos Mecânicos de uma única especialidade ('Atendimento', 'Auxiliar', 'Mecanico', 'Eletricista')
+* Recuperando os Funcionários, as equipes e sua especialidade
+* Recuperando os Funcionários por equipe e sua especialidade
+* recuperando um mecanico que tambem é cliente   
+
+#### Recuperando os dados de uma OS
+* Recuperando dados da OS com equipe responsável e veículo
+* Recuperando valores da Tabela Valores das peças
+* Recuperando valores da Tabela Valores das peças com filtro de busca nos valores
+* Recuperando valores da Tabela Valores dos Serviços
+* Recuperando valores da Tabela Valores dos Serviços com filtro de busca nos valores
+
+#### Recuperando valores de 3 tabelas com inner join e operações matemáticas
+* partRate from parts e quantity, totalPartsAmount from rateparts
+* filtro com like
+* Contagem de itens, soma, maximo, minimo e media de valores
+
+#### Recuperando valores de 4 tabelas com inner join e operações matemáticas
+* serviceorder OS, clinets, vehicles, totalPartsAmount from rateparts, totalService from rateservice
+
+* Identificação da OS, ID Veículo, ID Cliente, Valor das peças e serviços com filtro no cliente    
+* Identificação da OS, ID Veículo, ID Cliente, Valor das peças e serviços com filtro no veiculo
+
+
+
+### Como rodar a aplicação
+Clonar este repositório
+
+* É necessário ter o MySQL instalado na máquina, você pode importar o arquivo (OS_oficina_mecanica_script_final.sql) para realizar todas as queries desde a criação das tabelas, população dos dados e consultas.
+
+### Para testar o projeto
 
 ### criar tabelas
 * criar tabela pessoa
 
 
-create table people(
-	idPeople int auto_increment,
-    Fname varchar(10),
-    Minit varchar(10),
-    Lname varchar(20),
-    CPF char(11) not null,
-    Bdate date,
-    phone char(11),
-    street varchar(20),
-    houseNumber int,
-    complement varchar(10),
-    district varchar(20),
-    city varchar(20),
-    state char(2),
-    zip_code char(8),
-    constraint unique_cpf_people unique (CPF),
-    constraint pk_people primary key (idPeople)
-);
+create table people(  
+	idPeople int auto_increment,  
+    Fname varchar(10),  
+    Minit varchar(10),  
+    Lname varchar(20),  
+    CPF char(11) not null,  
+    Bdate date,  
+    phone char(11),  
+    street varchar(20),  
+    houseNumber int,  
+    complement varchar(10),  
+    district varchar(20),  
+    city varchar(20),  
+    state char(2),  
+    zip_code char(8),  
+    constraint unique_cpf_people unique (CPF),  
+    constraint pk_people primary key (idPeople)  
+);  
 
 
 * criar a tabela Cliente
 
 
-create table clients(
+create table clients(  
 	idClient int auto_increment,
 	idClientPL int,	
     constraint pk_idClient primary key (idClient),
@@ -271,7 +332,7 @@ insert into vehicle (idClVehicle,license_plate, brand,model)
 
 
 
-* poulando OS Ordem de serviço
+* populando OS Ordem de serviço
 
 
 insert into serviceOrder (kindServiceOrder,idVehicleOS, idrepairShopOS,idTeamOS,idclientOS,dateIn,dateOut,statusOS,descriptionOrder,clientAuthorization)
@@ -347,7 +408,7 @@ insert into rateServices (idrateServices,idServiceOS,quantity,totalService)
 
 #### Consultas básicas
 
-* pessoa dados das pessoas com concat
+* pessoa e dados das pessoas com concat
 
 
 select concat(Fname, ' ', Minit, ' ',Lname) as Pessoa, CPF, phone, Bdate from people;
