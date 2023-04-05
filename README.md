@@ -11,17 +11,17 @@ Tambem disponível em pdf e png como imagens
 
 ## DataBase
 Arquivo base de dados
-(OS_oficina_mecanica.mwb.bak)
+* OS_oficina_mecanica.mwb.bak
 
 
 ## Script de criação, população de dados e queries de consulta
 Script para criação das tabelas, Inserção de dados para popular as tabelas, Queries de consulta
-(OS_oficina_mecanica_script_final.sql)
+* OS_oficina_mecanica_script_final.sql
 
 
 
 ### criar tabelas
--- criar tabela pessoa
+* criar tabela pessoa
 
 
 create table people(
